@@ -15,6 +15,7 @@ exports.handler = async (event: any, context: any, callback: any) => {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(data.Items),
       isBase64Encoded: false,
