@@ -47,13 +47,13 @@ export default {
   },
   methods: {
     getAllTodos() {
-      fetch("https://qekf9lgczb.execute-api.eu-west-1.amazonaws.com/prod/todos")
+      fetch("https://qypotv0l68.execute-api.eu-west-1.amazonaws.com/prod/todos")
         .then((response) => response.json())
         .then((data) => (this.todos = data));
     },
     updateOrCreateToto(todo) {
       fetch(
-        "https://qekf9lgczb.execute-api.eu-west-1.amazonaws.com/prod/todo",
+        "https://qypotv0l68.execute-api.eu-west-1.amazonaws.com/prod/todo",
         {
           method: "POST",
           headers: {
@@ -78,7 +78,7 @@ export default {
     deleteTodo(deletedTodo) {
       this.todos = this.todos.filter((todo) => todo !== deletedTodo);
       fetch(
-        `https://qekf9lgczb.execute-api.eu-west-1.amazonaws.com/prod/todos/${deletedTodo.id}`,
+        `https://qypotv0l68.execute-api.eu-west-1.amazonaws.com/prod/todos/${deletedTodo.id}`,
         {
           method: "DELETE",
         }

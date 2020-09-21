@@ -96,6 +96,11 @@ export class TodoAppStack extends cdk.Stack {
     );
 
     //CF
+    // @ts-ignore
+    const cloudFrontOAI: cf.OriginAccessIdentity = new cf.OriginAccessIdentity(this, "TdoAppOAI", {
+      comment: "Todo app website.",
+    });
+
     const distribution = new cf.CloudFrontWebDistribution(
       // @ts-ignore
       this,
@@ -105,6 +110,7 @@ export class TodoAppStack extends cdk.Stack {
           {
             s3OriginSource: {
               s3BucketSource: myBucket,
+              originAccessIdentity: cloudFrontOAI,
             },
             behaviors: [{ isDefaultBehavior: true }],
           },
